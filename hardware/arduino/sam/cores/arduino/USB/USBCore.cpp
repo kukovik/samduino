@@ -22,6 +22,8 @@
 //#define TRACE_CORE(x)	x
 #define TRACE_CORE(x)
 
+// kukovik: temporary disable usb stuff
+#ifdef EP_TYPE_CONTROL
 static const uint32_t EndPoints[] =
 {
 	EP_TYPE_CONTROL,
@@ -884,3 +886,4 @@ bool USBDevice_::configured()
 void USBDevice_::poll()
 {
 }
+#endif

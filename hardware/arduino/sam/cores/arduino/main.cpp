@@ -48,7 +48,8 @@ int main( void )
 	delay(1);
 
 #if defined(USBCON)
-	USBDevice.attach();
+	// kukovik: do not forget to reenable after usb implementation
+	//USBDevice.attach();
 #endif
 
 	setup();

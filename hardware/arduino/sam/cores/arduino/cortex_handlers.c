@@ -61,9 +61,13 @@ void RTC_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void RTT_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void WDT_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void PMC_Handler        (void) __attribute__ ((weak, alias("__halt")));
+void EFC_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void EFC0_Handler       (void) __attribute__ ((weak, alias("__halt")));
 void EFC1_Handler       (void) __attribute__ ((weak, alias("__halt")));
 void UART_Handler       (void) __attribute__ ((weak, alias("__halt")));
+void UART0_Handler      (void) __attribute__ ((weak, alias("__halt")));
+void UART1_Handler      (void) __attribute__ ((weak, alias("__halt")));
+void CRCCU_Handler      (void) __attribute__ ((weak, alias("__halt")));
 #ifdef _SAM3XA_SMC_INSTANCE_
 void SMC_Handler        (void) __attribute__ ((weak, alias("__halt")));
 #endif
@@ -93,6 +97,7 @@ void USART3_Handler     (void) __attribute__ ((weak, alias("__halt")));
 void HSMCI_Handler      (void) __attribute__ ((weak, alias("__halt")));
 void TWI0_Handler       (void) __attribute__ ((weak, alias("__halt")));
 void TWI1_Handler       (void) __attribute__ ((weak, alias("__halt")));
+void SPI_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void SPI0_Handler       (void) __attribute__ ((weak, alias("__halt")));
 #ifdef _SAM3XA_SPI1_INSTANCE_
 void SPI1_Handler       (void) __attribute__ ((weak, alias("__halt")));
@@ -112,6 +117,8 @@ void TC8_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void PWM_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void ADC_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void DACC_Handler       (void) __attribute__ ((weak, alias("__halt")));
+void ACC_Handler        (void) __attribute__ ((weak, alias("__halt")));
+void UDP_Handler        (void) __attribute__ ((weak, alias("__halt")));
 void DMAC_Handler       (void) __attribute__ ((weak, alias("__halt")));
 void UOTGHS_Handler     (void) __attribute__ ((weak, alias("__halt")));
 void TRNG_Handler       (void) __attribute__ ((weak, alias("__halt")));

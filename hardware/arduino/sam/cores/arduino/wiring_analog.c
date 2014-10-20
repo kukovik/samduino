@@ -295,8 +295,13 @@ void analogWrite(uint32_t ulPin, uint32_t ulValue) {
 		static const uint32_t channelToAB[]   = { 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 };
 		static Tc *channelToTC[] = {
 			TC0, TC0, TC0, TC0, TC0, TC0,
+#ifdef TC1
 			TC1, TC1, TC1, TC1, TC1, TC1,
-			TC2, TC2, TC2, TC2, TC2, TC2 };
+#endif
+#ifdef TC2
+			TC2, TC2, TC2, TC2, TC2, TC2
+#endif
+		};
 		static const uint32_t channelToId[] = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
 		uint32_t chNo = channelToChNo[channel];
 		uint32_t chA  = channelToAB[channel];

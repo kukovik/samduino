@@ -18,6 +18,8 @@
 #include "USBAPI.h"
 #include "Reset.h"
 
+// kukovik: temporary disable usb stuff
+#ifdef EP_TYPE_CONTROL
 #ifdef CDC_ENABLED
 
 #define CDC_SERIAL_BUFFER_SIZE	512
@@ -301,4 +303,5 @@ Serial_::operator bool()
 
 Serial_ SerialUSB;
 
+#endif
 #endif

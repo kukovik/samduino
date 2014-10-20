@@ -1,4 +1,21 @@
 
+samduino_nano.name=Samduino Nano
+samduino_nano.upload.tool=samduinobtld
+samduino_nano.upload.protocol=smduinobtld
+samduino_nano.upload.maximum_size=253952
+samduino_nano.upload.use_1200bps_touch=false
+samduino_nano.upload.wait_for_upload_port=false
+samduino_nano.upload.native_usb=false
+samduino_nano.build.mcu=cortex-m3
+samduino_nano.build.f_cpu=64000000L
+samduino_nano.build.usb_product="Samduino Nano"
+samduino_nano.build.board=SAMDUINO_NANO
+samduino_nano.build.core=arduino
+samduino_nano.build.extra_flags=-D__SAM3S4B__ -mthumb {build.usb_flags}
+samduino_nano.build.ldscript=linker_scripts/gcc/flash.ld
+samduino_nano.build.variant=samduino_nano
+samduino_nano.build.variant_system_lib=libsam_sam3s4b_gcc_rel.a
+
 arduino_due_x_dbg.name=Arduino Due (Programming Port)
 arduino_due_x_dbg.vid.0=0x2341
 arduino_due_x_dbg.pid.0=0x003d

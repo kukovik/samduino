@@ -42,7 +42,7 @@ extern "C" {
 #define SYS_BOARD_PLLAR     (CKGR_PLLAR_ONE \
 							| CKGR_PLLAR_MULA(0x1fUL) \
 							| CKGR_PLLAR_PLLACOUNT(0x3fUL) \
-							| CKGR_PLLAR_DIVA(0x3UL))
+							| CKGR_PLLAR_DIVA(0x4UL))
 #define SYS_BOARD_MCKR      (PMC_MCKR_PRES_CLK_2 | PMC_MCKR_CSS_PLLA_CLK)
 
 #define SYS_CKGR_MOR_KEY_VALUE	CKGR_MOR_KEY(0x37UL) /* Key to unlock MOR register */

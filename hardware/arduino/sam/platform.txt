@@ -87,3 +87,11 @@ tools.bossac.upload.params.verbose=-i -d
 tools.bossac.upload.params.quiet=
 tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U {upload.native_usb} -e -w -v -b "{build.path}/{build.project_name}.bin" -R
 
+tools.samduinobtld.cmd=btld.sh
+tools.samduinobtld.cmd.windows=btld.exe
+tools.samduinobtld.path={runtime.ide.path}/hardware/tools
+
+tools.samduinobtld.upload.params.verbose=
+tools.samduinobtld.upload.params.quiet=
+tools.samduinobtld.upload.pattern="{path}/{cmd}" -w "{build.path}/{build.project_name}.bin" -B
+

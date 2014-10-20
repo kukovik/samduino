@@ -47,17 +47,21 @@ static void __initialize() {
 	NVIC_SetPriority(PIOB_IRQn, 0);
 	NVIC_EnableIRQ(PIOB_IRQn);
 
+#ifdef ID_PIOC
 	pmc_enable_periph_clk(ID_PIOC);
 	NVIC_DisableIRQ(PIOC_IRQn);
 	NVIC_ClearPendingIRQ(PIOC_IRQn);
 	NVIC_SetPriority(PIOC_IRQn, 0);
 	NVIC_EnableIRQ(PIOC_IRQn);
+#endif
 
+#ifdef ID_PIOD
 	pmc_enable_periph_clk(ID_PIOD);
 	NVIC_DisableIRQ(PIOD_IRQn);
 	NVIC_ClearPendingIRQ(PIOD_IRQn);
 	NVIC_SetPriority(PIOD_IRQn, 0);
 	NVIC_EnableIRQ(PIOD_IRQn);
+#endif
 }
 
 
@@ -83,10 +87,14 @@ void attachInterrupt(uint32_t pin, void (*callback)(void), uint32_t mode)
 		callbacksPioA[pos] = callback;
 	if (pio == PIOB)
 		callbacksPioB[pos] = callback;
+#ifdef ID_PIOC
 	if (pio == PIOC)
 		callbacksPioC[pos] = callback;
+#endif
+#ifdef ID_PIOD
 	if (pio == PIOD)
 		callbacksPioD[pos] = callback;
+#endif
 
 	// Configure the interrupt mode
 	if (mode == CHANGE) {
@@ -155,6 +163,7 @@ void PIOB_Handler(void) {
 	}
 }
 
+#ifdef ID_PIOC
 void PIOC_Handler(void) {
 	uint32_t isr = PIOC->PIO_ISR;
 	uint32_t i;
@@ -165,7 +174,9 @@ void PIOC_Handler(void) {
 			callbacksPioC[i]();
 	}
 }
+#endif
 
+#ifdef ID_PIOD
 void PIOD_Handler(void) {
 	uint32_t isr = PIOD->PIO_ISR;
 	uint32_t i;
@@ -176,6 +187,7 @@ void PIOD_Handler(void) {
 			callbacksPioD[i]();
 	}
 }
+#endif
 
 #ifdef __cplusplus
 }

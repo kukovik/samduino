@@ -25,7 +25,7 @@ SUBMAKE_OPTIONS=--no-builtin-rules --no-builtin-variables --no-print-directory
 #-------------------------------------------------------------------------------
 
 # libsam_sam3s4c_gcc_rel.a libsam_sam3u4e_gcc_rel.a libsam_sam3x8e_gcc_rel.a libsam_sam3x8h_gcc_rel.a
-all: libsam_sam3s4c_gcc_dbg.a libsam_sam3u4e_gcc_dbg.a libsam_sam3x8e_gcc_dbg.a libsam_sam3x8h_gcc_dbg.a arduino_due_x
+all: libsam_sam3s4c_gcc_dbg.a libsam_sam3u4e_gcc_dbg.a libsam_sam3x8e_gcc_dbg.a libsam_sam3x8h_gcc_dbg.a libsam_sam3s4b_gcc_dbg.a arduino_due_x samduino_nano
 
 .PHONY: arduino_due_u
 arduino_due_u:
@@ -43,6 +43,14 @@ arduino_due_x:
 	@$(MAKE) CHIP=__SAM3X8E__ $(SUBMAKE_OPTIONS) OUTPUT_BIN=../../../variants/arduino_due_x -f sam3.mk
 	@echo ------------------------------------------------------------------------------------
 
+.PHONY: samduino_nano
+samduino_nano:
+	@echo ------------------------------------------------------------------------------------
+	@echo --- Making $@
+	@echo ---
+	@$(MAKE) CHIP=__SAM3S4B__ $(SUBMAKE_OPTIONS) OUTPUT_BIN=../../../variants/samduino_nano -f sam3.mk
+	@echo ------------------------------------------------------------------------------------
+
 .PHONY: libsam_sam3s4c_gcc_dbg.a
 libsam_sam3s4c_gcc_dbg.a:
 	@echo ------------------------------------------------------------------------------------
@@ -57,6 +65,22 @@ libsam_sam3s4c_gcc_rel.a:
 	@echo --- Making $@
 	@echo ---
 	@$(MAKE) CHIP=__SAM3S4C__ $(SUBMAKE_OPTIONS) -f sam3.mk
+	@echo ------------------------------------------------------------------------------------
+
+.PHONY: libsam_sam3s4b_gcc_dbg.a
+libsam_sam3s4b_gcc_dbg.a:
+	@echo ------------------------------------------------------------------------------------
+	@echo --- Making $@
+	@echo ---
+	@$(MAKE) CHIP=__SAM3S4B__ DEBUG=1 $(SUBMAKE_OPTIONS) -f sam3.mk
+	@echo ------------------------------------------------------------------------------------
+
+.PHONY: libsam_sam3s4b_gcc_rel.a
+libsam_sam3s4b_gcc_rel.a:
+	@echo ------------------------------------------------------------------------------------
+	@echo --- Making $@
+	@echo ---
+	@$(MAKE) CHIP=__SAM3S4B__ $(SUBMAKE_OPTIONS) -f sam3.mk
 	@echo ------------------------------------------------------------------------------------
 
 .PHONY: libsam_sam3u4e_gcc_dbg.a
@@ -113,6 +137,10 @@ clean:
 	@echo --- Cleaning sam3s4c release and debug
 	@$(MAKE) CHIP=__SAM3S4C__ $(SUBMAKE_OPTIONS) -f sam3.mk $@
 	@$(MAKE) CHIP=__SAM3S4C__ DEBUG=1 $(SUBMAKE_OPTIONS) -f sam3.mk $@
+
+	@echo --- Cleaning sam3s4b release and debug
+	@$(MAKE) CHIP=__SAM3S4B__ $(SUBMAKE_OPTIONS) -f sam3.mk $@
+	@$(MAKE) CHIP=__SAM3S4B__ DEBUG=1 $(SUBMAKE_OPTIONS) -f sam3.mk $@
 
 	@echo --- Cleaning sam3u4e release and debug
 	@$(MAKE) CHIP=__SAM3U4E__ $(SUBMAKE_OPTIONS) -f sam3.mk $@
