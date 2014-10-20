@@ -472,10 +472,14 @@
     <copy file="linux/dist/tools/adk2install" todir="linux/work/hardware/tools" />
     <copy file="linux/dist/tools/adk2tool" todir="linux/work/hardware/tools" />
     <copy file="linux/dist/tools/bossac${arch-bits}" tofile="linux/work/hardware/tools/bossac" />
+    <copy file="linux/dist/tools/btld${arch-bits}" tofile="linux/work/hardware/tools/btld" />
+    <copy file="linux/dist/tools/btld.sh" tofile="linux/work/hardware/tools/btld.sh" />
 
     <chmod perm="755" file="linux/work/hardware/tools/bossac" />
     <chmod perm="755" file="linux/work/hardware/tools/adk2tool" />
     <chmod perm="755" file="linux/work/hardware/tools/adk2install" />
+    <chmod perm="755" file="linux/work/hardware/tools/btld" />
+    <chmod perm="755" file="linux/work/hardware/tools/btld.sh" />
 
     <copy todir="linux/work" file="linux/dist/arduino" />
     <chmod perm="755" file="linux/work/arduino" />

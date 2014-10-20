@@ -38,7 +38,7 @@
 #include <Stream.h>
 #include <IPAddress.h>
 
-class UDP : public Stream {
+class UDPClass : public Stream {
 
 public:
   virtual uint8_t begin(uint16_t) =0;	// initialize, start listening on specified port. Returns 1 if successful, 0 if there are no sockets available to use

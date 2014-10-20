@@ -113,18 +113,24 @@ extern int _write( UNUSED(int file), char *ptr, int len )
 {
     int iIndex ;
 
-
 //    for ( ; *ptr != 0 ; ptr++ )
     for ( iIndex=0 ; iIndex < len ; iIndex++, ptr++ )
     {
 //        UART_PutChar( *ptr ) ;
 
+#ifdef __SAM3S4B__
+		  while ((USART1->US_CSR & US_CSR_TXRDY) != US_CSR_TXRDY)
+			;
+
+		  USART1->US_THR = *ptr;
+#else
 		// Check if the transmitter is ready
 		  while ((UART->UART_SR & UART_SR_TXRDY) != UART_SR_TXRDY)
 			;
 
 		  // Send character
 		  UART->UART_THR = *ptr;
+#endif
     }
 
     return iIndex ;
